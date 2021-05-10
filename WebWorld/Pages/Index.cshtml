@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Cities in a Country";
+}
+
+<div class="text-center">
+    <form method="post" enctype="multipart/form-data">
+        Enter a Country:
+        <input type="text" asp-for="Country">
+        <input type="submit" value="Submit"/>
+    </form>
+    <br><br>
+    <p>@CitiesList.GetCitiesList(@Model.Country)</p>
+    <br><br>
+    <form method="post" enctype="multipart/form-data">
+        Enter a Continent:
+        <input type="text" asp-for="Continent">
+        <input type="submit" value="Submit"/>
+    </form>
+    <br><br>
+    <p>@CountriesInAContinent.GetCountriesInAContinent(@Model.Continent)</p>
+    <br>
+    <form method="post" enctype="multipart/form-data">
+        Enter the first letter of a Country:
+        <input type="text" asp-for="FirstLetter">
+        <input type="submit" value="Submit"/>
+    </form>
+    <br><br>
+    <p>@ListByFirstLetter.GetListByFirstLetter(@Model.FirstLetter)</p>
+    <br><br>
+    <form method="post" enctype="multipart/form-data">
+        Enter a city:
+        <input type="text" asp-for="City">
+        <input type="submit" value="Submit"/>
+    </form>
+    <br><br>
+    <p>@ListInfoAboutCity.GetListInfoAboutCity(@Model.City)</p>
+    <br><br>
+</div>
